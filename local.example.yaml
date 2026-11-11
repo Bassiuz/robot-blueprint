@@ -1,0 +1,23 @@
+# Copy to local.yaml (gitignored). The site reads it at build time to list the
+# agent files and skills on this machine. Without it, those pages stay empty,
+# which is what the public repo shows.
+
+instances:
+  - name: Claude
+    kind: claude                 # claude | codex
+    dir: ~/.claude
+    account_file: ~/.claude.json # for the claude.ai synced skills of this account
+  - name: Codex
+    kind: codex
+    dir: ~/.codex
+
+# Folders whose subfolders are repositories. Labels group the repo files.
+repo_roots:
+  - label: Personal
+    dir: ~/Projects
+
+# Single files to show with the global rules (e.g. harness prompts).
+extra_files: []
+
+# Extra words scripts/check-public.sh must never find in tracked files.
+deny: []

@@ -1,0 +1,21 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+
+    // Tallies are created by the addTally function; the owner may only change the count.
+    match /tallies/{id} {
+      allow read: if isSignedIn();
+      allow update: if isOwner(resource.data.owner)
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['count'])
+        && request.resource.data.count is int;
+      allow delete: if isOwner(resource.data.owner);
+    }
+
+    // Derived data, written only by onTallyWritten.
+    match /meta/totals {
+      allow read: if isSignedIn();
+    }
+  }
+}

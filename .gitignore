@@ -1,0 +1,9 @@
+site/build/
+site/.dart_tool/
+**/node_modules/
+**/.dart_tool/
+**/build/
+.DS_Store
+examples/tally/functions/lib/
+**/.fvm/
+local.yaml

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tally — turven zonder gedoe</title>
+  <meta name="description" content="Tally houdt bij hoe vaak iets gebeurt. Eén tik, één streepje.">
+  <meta property="og:title" content="Tally — turven zonder gedoe">
+  <meta property="og:description" content="Tally houdt bij hoe vaak iets gebeurt. Eén tik, één streepje.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="nl_NL">
+  <meta property="og:url" content="https://tally.basdevaan.nl/">
+  <style>
+    :root {
+      --tally-ink: #1d2a24;
+      --tally-paper: #f4f1ea;
+      --tally-accent: #2f6b4f;
+      --tally-gap: clamp(1rem, 3vw, 2rem);
+    }
+    body { margin: 0; font: 1.125rem/1.6 Georgia, serif; color: var(--tally-ink); background: var(--tally-paper); }
+    main { max-width: 38rem; margin: 0 auto; padding: var(--tally-gap); }
+    h1 { font-size: clamp(2.5rem, 8vw, 4rem); line-height: 1.05; margin: 2em 0 .4em; }
+    .marks { color: var(--tally-accent); letter-spacing: .2em; }
+    a { color: var(--tally-accent); }
+    @media (prefers-reduced-motion: no-preference) {
+      .marks { animation: draw 1.2s steps(5) both; }
+      @keyframes draw { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Turven zonder gedoe</h1>
+    <p class="marks" aria-hidden="true">𝍸 𝍸 𝍷𝍷</p>
+    <p>Tally houdt bij hoe vaak iets gebeurt. Koffie, hardlooprondjes, keren dat de kat op het toetsenbord stond. Eén tik, één streepje.</p>
+    <p><a href="https://tally-app.basdevaan.nl/">Open de web-app</a></p>
+  </main>
+</body>
+</html>
